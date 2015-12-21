@@ -14,65 +14,84 @@
   <body>
     <div id = "navBar">
       <p> Source and Sort </p>
-    </div> -->
-    <form name= "url" action= "index.php" method= "POST"> 
-      Please enter a URL here: <br>
-      <input type="url" name = "url" id = "url">
-      <input type="submit" name = "submit" value= "Submit">
-      <br>
-    </form> 
+    </div> <!-- End navBar div-->
 
-    <?php 
-      if (isset($_POST['submit'])) {
-      $pageurl = $_POST['url'];
-      }
+    <div id = "summary">
+      <p> Summary </p>
+      <!-- What do you want to do here?
+      so pretty much have a list of all the tags
+      and then check to see if they are present in the php array
+      if they are present create a button and a running count
+      if they are not present do not create a button
+      I guess we're going to do this in javascript?
+      So have an extra script on the side?-->
 
-      $pagerequest = file_get_contents($pageurl);
-      $pagevar = htmlentities($pagerequest);
-      $pieces = explode("&gt;", $pagevar);
-      //echo $pieces[2]; 
-      print_r($pieces);
+    </div> <!-- End summary div --> 
 
+    <div id = "requestForm">
+      <form name= "url" action= "index.php" method= "POST"> 
+        Please enter a URL here: <br>
+        <input type="url" name = "url" id = "url">
+        <input type="submit" name = "submit" value= "Submit">
+        <br>
+      </form> 
 
-  /**  function pretty($arr, $level=0){
-      $tabs = "";
-      for($i=0;$i<$level; $i++){
-          $tabs .= "    ";
-      }
-      foreach($arr as $key=>$val){
-          if( is_array($val) ) {
-              print ($tabs . $key . " : " . "\n");
-              pretty($val, $level + 1);
-          } else {
-              if($val && $val !== 0){
-                  print ($tabs . $key . " : " . $val . "\n"); 
-              }
-          }
-      }
-  }
-        // Example:
-        $item["A"] = array("a", "b", "c");
-        $item["B"] = array("a", "b", "c");
-        $item["C"] = array("a", "b", "c");
+      <?php 
+        if (isset($_POST['submit'])) {
+        $pageurl = $_POST['url'];
+        }
 
-        pretty($item);
+        $pagerequest = file_get_contents($pageurl);
+        $pagevar = htmlentities($pagerequest);
+        $pieces = explode("&gt;", $pagevar);
+        //echo $pieces[2]; 
+        //print_r($pieces);
 
-        // -------------
-        // yields
-        // -------------
-        // A : 
-        //     0 : a
-        //     1 : b
-        //     2 : c
-        // B : 
-        //     0 : a
-        //     1 : b
-        //     2 : c
-        // C : 
-        //     0 : a
-        //     1 : b
-        //     2 : c **/
-    ?>
+        //http://stackoverflow.com/questions/1168175/is-there-a-pretty-print-for-php
+        //must remember to append > to end of each line
+        //redo this function later 
+        function pretty($arr, $level=0){
+        $tabs = "";
+        for($i=0;$i<$level; $i++){
+            $tabs .= "    ";
+        }
+            foreach($arr as $key=>$val){
+                if( is_array($val) ) {
+                    print ($tabs . $key . " : " . "\n<br />");
+                    pretty($val, $level + 1);
+                } else {
+                    if($val && $val !== 0){
+                        print ($tabs . $key . " : " . $val . "\n<br />"); 
+                    }
+                }
+            }
+        }
+
+        pretty($pieces); 
+          // Example:
+          /**$item["A"] = array("a", "b", "c");
+          $item["B"] = array("a", "b", "c");
+          $item["C"] = array("a", "b", "c"); 
+
+          pretty($item); **/
+
+          // -------------
+          // yields
+          // -------------
+          // A : 
+          //     0 : a
+          //     1 : b
+          //     2 : c
+          // B : 
+          //     0 : a
+          //     1 : b
+          //     2 : c
+          // C : 
+          //     0 : a
+          //     1 : b
+          //     2 : c **/
+      ?>
+    </div> <!--End requestForm div-->
     <div id="content"></div>
     <script type = "text/babel" src = "scripts/htmlparser.js"> </script>
     <script type="text/babel"> </script>
