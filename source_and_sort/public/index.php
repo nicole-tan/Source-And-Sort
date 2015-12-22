@@ -55,32 +55,20 @@
         }
 
         $prettyRes = pretty($pieces); 
-          // Example:
-          /**$item["A"] = array("a", "b", "c");
-          $item["B"] = array("a", "b", "c");
-          $item["C"] = array("a", "b", "c"); 
 
-          pretty($item); **/
+        /**$search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
+        echo '<pre>';
+        $tagCount = (array_count_values($matches[1]));
+        foreach($tagCount as $key => $value)
+          echo $key.' - '.$value.'<br>';
+        echo '</pre>'; **/
 
-          // -------------
-          // yields
-          // -------------
-          // A : 
-          //     0 : a
-          //     1 : b
-          //     2 : c
-          // B : 
-          //     0 : a
-          //     1 : b
-          //     2 : c
-          // C : 
-          //     0 : a
-          //     1 : b
-          //     2 : c **/
 
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
         echo '<pre>';
-        var_dump(array_count_values($matches[1]));
+        $tagCount = (array_count_values($matches[1]));
+        foreach($tagCount as $key => $value)
+          echo "<input type= \"submit\" value= $key>".' '.$value."<br>";
         echo '</pre>';
 
       ?>
