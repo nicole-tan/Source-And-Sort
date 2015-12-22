@@ -16,18 +16,6 @@
       <p> Source and Sort </p>
     </div> <!-- End navBar div-->
 
-    <div id = "summary">
-      <p> Summary </p>
-      <!-- What do you want to do here?
-      so pretty much have a list of all the tags
-      and then check to see if they are present in the php array
-      if they are present create a button and a running count
-      if they are not present do not create a button
-      I guess we're going to do this in javascript?
-      So have an extra script on the side?-->
-
-    </div> <!-- End summary div --> 
-
     <div id = "requestForm">
       <form name= "url" action= "index.php" method= "POST"> 
         Please enter a URL here: <br>
@@ -48,7 +36,6 @@
         //print_r($pieces);
 
         //http://stackoverflow.com/questions/1168175/is-there-a-pretty-print-for-php
-        //must remember to append > to end of each line
         //redo this function later 
         function pretty($arr, $level=0){
         $tabs = "";
@@ -57,17 +44,17 @@
         }
             foreach($arr as $key=>$val){
                 if( is_array($val) ) {
-                    print ($tabs . $key . " : " . "\n<br />");
+                    print ($tabs . $key . " : " . "\n".">"."<br />");
                     pretty($val, $level + 1);
                 } else {
                     if($val && $val !== 0){
-                        print ($tabs . $key . " : " . $val . "\n<br />"); 
+                        print ($tabs . $key . " : " . $val . "\n".">"."<br />"); 
                     }
                 }
             }
         }
 
-        pretty($pieces); 
+        $prettyRes = pretty($pieces); 
           // Example:
           /**$item["A"] = array("a", "b", "c");
           $item["B"] = array("a", "b", "c");
@@ -90,8 +77,28 @@
           //     0 : a
           //     1 : b
           //     2 : c **/
+
+        $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
+        echo '<pre>';
+        var_dump(array_count_values($matches[1]));
+        echo '</pre>';
+
       ?>
     </div> <!--End requestForm div-->
+
+    <div id = "summary">
+      <p> Summary </p>
+      <!-- What do you want to do here?
+      so pretty much have a list of all the tags
+      and then check to see if they are present in the php array
+      if they are present create a button and a running count
+      if they are not present do not create a button
+      I guess we're going to do this in javascript?
+      So have an extra script on the side?
+      They also have to highlight parts within the source code-->
+
+
+    </div> <!-- End summary div --> 
     <div id="content"></div>
     <script type = "text/babel" src = "scripts/htmlparser.js"> </script>
     <script type="text/babel"> </script>
