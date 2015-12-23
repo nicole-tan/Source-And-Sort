@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>React Tutorial</title>
     <!-- Not present in the tutorial. Just for basic styling. -->
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/styles.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
@@ -17,11 +17,11 @@
     </div> <!-- End navBar div-->
 
     <div id = "requestForm">
-      <form name= "url" action= "index.php" method= "POST"> 
-        Please enter a URL here: <br>
+      <form name= "url" action= "index.php" method= "POST" id = "urlField"> 
+        <p id = "enterUrl"> Please enter a URL here: </p>
         <input type="url" name = "url" id = "url">
         <input type="submit" name = "submit" value= "Submit">
-        <br>
+        </br>
       </form> 
 
       <?php 
@@ -44,38 +44,74 @@
         }
             foreach($arr as $key=>$val){
                 if( is_array($val) ) {
-                    print ($tabs . $key . " : " . "\n".">"."<br />");
+                    print_r ($tabs . $key . " : " . "\n".">"."<br />");
                     pretty($val, $level + 1);
                 } else {
                     if($val && $val !== 0){
-                        print ($tabs . $key . " : " . $val . "\n".">"."<br />"); 
+                        print_r ($tabs . $val . "\n".">"."<br />"); 
                     }
                 }
             }
         }
 
+        echo "<div id = \"prettyPrint\">"."<br>";
         $prettyRes = pretty($pieces); 
+        echo "</div>";
 
-        /**$search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
-        echo '<pre>';
-        $tagCount = (array_count_values($matches[1]));
-        foreach($tagCount as $key => $value)
-          echo $key.' - '.$value.'<br>';
-        echo '</pre>'; **/
+        echo "<script type= \"text/javascript\"> 
+          function highlight(text) {
+            inputText = document.getElementById(\"prettyPrint\");
+            var innerHTML = inputText.innerHTML;
+            var index = innerHTML.indexOf(text);
+            if (index >= 0)
+            {
+              innerHTML = innerHTML.substring(0, index) + \"<span class = 'highlight'>\" + innerHTML.substring(index,
+                index+text.length) + \"</span>\" + innerHTML.substring(index + text.length);
+              inputText.innerHTML = innerHTML;
+              document.write(\"I got here!\");
+            }
+          }
+          </script>
 
-
+          <style>
+          .highlight {
+            background-color: yellow;
+            }
+          </style>";
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
         echo '<pre>';
         $tagCount = (array_count_values($matches[1]));
         foreach($tagCount as $key => $value)
-          echo "<input type= \"submit\" value= $key>".' '.$value."<br>";
+          echo "<input type= \"submit\" onclick = highlight($key) value= $key>".' '.$value."<br>";
         echo '</pre>';
 
       ?>
+
+    <script type= "text/javascript"> 
+      function highlight(text) {
+        inputText = document.getElementById("prettyPrint");
+        var innerHTML = inputText.innerHTML;
+        var index = innerHTML.indexOf(text);
+        if (index >= 0)
+        {
+          innerHTML = innerHTML.substring(0, index) + "<span class = 'highlight'>" + innerHTML.substring(index,
+            index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+          inputText.innerHTML = innerHTML;
+
+        }
+      }
+      </script>
+
+      <style>
+      .highlight {
+        background-color: yellow;
+      }
+      </style> 
+
     </div> <!--End requestForm div-->
 
     <div id = "summary">
-      <p> Summary </p>
+      <p> Summary: </p>
       <!-- What do you want to do here?
       so pretty much have a list of all the tags
       and then check to see if they are present in the php array
@@ -87,8 +123,5 @@
 
 
     </div> <!-- End summary div --> 
-    <div id="content"></div>
-    <script type = "text/babel" src = "scripts/htmlparser.js"> </script>
-    <script type="text/babel"> </script>
   </body>
 </html>
