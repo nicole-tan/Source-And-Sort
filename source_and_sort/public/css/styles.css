@@ -1,0 +1,31 @@
+body {
+	background: #272822;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+#navBar {
+	background: #272822;
+	text-align: center;
+	font-style: bold;
+	font-size: 35px;
+	color: #e6db74;
+}
+
+#enterUrl {
+	color: #f92772;
+}
+
+#urlField {
+	margin-left: 25px;
+}
+#requestForm {
+	float: left;
+}
+
+#summary {
+	float: right;
+	margin-right: 600px;
+
+}
