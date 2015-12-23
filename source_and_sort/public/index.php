@@ -54,11 +54,22 @@
             }
         }
 
-        echo "<div id = \"prettyPrint\">"."<br>";
-        $prettyRes = pretty($pieces); 
-        echo "</div>";
+        echo '<div id= "prettyPrint">'."<br>";
+        pretty($pieces); 
+        echo '</div>';
 
-        echo "<script type= \"text/javascript\"> 
+
+        $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
+        echo "<div id= \"summaryInfo\">";
+        $tagCount = (array_count_values($matches[1]));
+        foreach($tagCount as $key => $value)
+          echo "<input type= \"submit\" onclick = highlight('$key') value= $key>".' '.$value."<br>";
+        echo "</div>"; //end summaryInfo div
+
+      ?>
+
+
+        <!--  echo "<script type= \"text/javascript\"> 
           function highlight(text) {
             inputText = document.getElementById(\"prettyPrint\");
             var innerHTML = inputText.innerHTML;
@@ -77,16 +88,7 @@
           .highlight {
             background-color: yellow;
             }
-          </style>";
-        $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
-        echo '<pre>';
-        $tagCount = (array_count_values($matches[1]));
-        foreach($tagCount as $key => $value)
-          echo "<input type= \"submit\" onclick = highlight($key) value= $key>".' '.$value."<br>";
-        echo '</pre>';
-
-      ?>
-
+          </style>"; -->
     <script type= "text/javascript"> 
       function highlight(text) {
         inputText = document.getElementById("prettyPrint");
