@@ -2,20 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>React Tutorial</title>
-    <!-- Not present in the tutorial. Just for basic styling. -->
+    <title>Source and Sort</title>
     <link rel="stylesheet" href="css/styles.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
   </head>
   <body>
     <div id = "navBar">
       <p> Source and Sort </p>
     </div> <!-- End navBar div-->
-
     <div id = "requestForm">
       <form name= "url" action= "index.php" method= "POST" id = "urlField"> 
         <p id = "enterUrl"> Please enter a URL here: </p>
@@ -68,39 +61,13 @@
 
       ?>
 
-
-        <!--  echo "<script type= \"text/javascript\"> 
-          function highlight(text) {
-            inputText = document.getElementById(\"prettyPrint\");
-            var innerHTML = inputText.innerHTML;
-            var index = innerHTML.indexOf(text);
-            if (index >= 0)
-            {
-              innerHTML = innerHTML.substring(0, index) + \"<span class = 'highlight'>\" + innerHTML.substring(index,
-                index+text.length) + \"</span>\" + innerHTML.substring(index + text.length);
-              inputText.innerHTML = innerHTML;
-              document.write(\"I got here!\");
-            }
-          }
-          </script>
-
-          <style>
-          .highlight {
-            background-color: yellow;
-            }
-          </style>"; -->
     <script type= "text/javascript"> 
-      function highlight(text) {
-        inputText = document.getElementById("prettyPrint");
-        var innerHTML = inputText.innerHTML;
-        var index = innerHTML.indexOf(text);
-        if (index >= 0)
-        {
-          innerHTML = innerHTML.substring(0, index) + "<span class = 'highlight'>" + innerHTML.substring(index,
-            index+text.length) + "</span>" + innerHTML.substring(index + text.length);
-          inputText.innerHTML = innerHTML;
 
-        }
+      function highlight(text) {
+        document.body.innerHTML = document.body.innerHTML.replace(
+            new RegExp(text + '(?!([^<]+)?>)', 'gi'),
+            '<b style="background-color:#ff0;font-size:100%">$&</b>'
+        );
       }
       </script>
 
@@ -114,14 +81,6 @@
 
     <div id = "summary">
       <p> Summary: </p>
-      <!-- What do you want to do here?
-      so pretty much have a list of all the tags
-      and then check to see if they are present in the php array
-      if they are present create a button and a running count
-      if they are not present do not create a button
-      I guess we're going to do this in javascript?
-      So have an extra script on the side?
-      They also have to highlight parts within the source code-->
 
 
     </div> <!-- End summary div --> 
