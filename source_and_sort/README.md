@@ -1,10 +1,17 @@
 # Source and Sort
 
 
-## To use
+## To Use
 
-There are several simple server implementations included. They all serve static files from `public/` and handle requests to `/api/comments` to fetch or add data. Start a server with one of the following:
+I initially started with the code from the React framework (found at https://github.com/reactjs/react-tutorial). The server.php file as well as the comments.json and app.json files are all from that framework. 
 
-### Node
+### Server
+To start the web application, I used MAMP.
+However, you can also start by typing the code below into Terminal. There will be some random echo output that I am looking to fix.
+
+```php
+php server.php 
+```
+
 
 
