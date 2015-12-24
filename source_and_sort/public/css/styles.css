@@ -1,8 +1,16 @@
-#prettyPrint {
+#requestForm {
+	height: 500px;
 	margin-left: 25px;
+	width: 800px;
+}
+
+#prettyPrint {
+	margin-top: 15px;
 	font-size: 15px;
-	width: 600px;
 	font-family: Arial;
+	max-height: 100%;
+	overflow: auto;
+	background: #44453f;
 }
 
 body {
@@ -12,10 +20,20 @@ body {
 	color: white;
 }
 
+#url {
+	height: 20px;
+	width: 600px;
+}
+
+#submit {
+	font-family: Helvetica;
+	font-size: 20px;
+	margin-left: 5px;
+}
 #navBar {
 	background: #272822;
 	text-align: center;
-	font-style: bold;
+	font-weight: bold;
 	font-size: 35px;
 	color: #e6db74;
 }
@@ -33,7 +51,7 @@ body {
 
 #summary {
 	float: right;
-	margin-right: 600px;
+	margin-right: 400px;
 }
 
 #summaryInfo {
