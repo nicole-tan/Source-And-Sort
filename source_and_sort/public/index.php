@@ -43,14 +43,18 @@
             }
         }
 
-         echo '<div id= "prettyPrint">';
-        pretty($pieces); 
-        echo '</div> </div>'; 
+        ?>
+         <div id= "prettyPrint">
+          <?php pretty($pieces) ?>
+        </div> 
+      </div> 
 
+      <?php 
     echo '<div id = "summary">
             <p> Summary: </p>';
+            
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
-        echo "<div id= \"summaryInfo\">";
+        echo '<div id= "summaryInfo">';
         $tagCount = (array_count_values($matches[1]));
         foreach($tagCount as $key => $value)
           echo "<input type= \"submit\" onclick = highlight('$key') value= $key>".' '.$value."<br>";
