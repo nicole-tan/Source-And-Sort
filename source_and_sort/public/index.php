@@ -14,6 +14,7 @@
         <p id = "enterUrl"> Please enter a URL here: </p>
         <input type="url" name = "url" id = "url">
         <input type="submit" name = "submit" value= "Submit" id = "submit">
+        <br>
       </form> 
 
       <?php 
@@ -42,21 +43,18 @@
             }
         }
 
-        echo '<div id= "prettyPrint">';
+         echo '<div id= "prettyPrint">';
         pretty($pieces); 
-        echo '</div>';
+        echo '</div> </div>'; 
 
-    echo '</div>'; //end requestForm div
-
-    echo '<div id = "summary">';
-      echo '<p> Summary: </p>';
+    echo '<div id = "summary">
+            <p> Summary: </p>';
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
         echo "<div id= \"summaryInfo\">";
         $tagCount = (array_count_values($matches[1]));
         foreach($tagCount as $key => $value)
           echo "<input type= \"submit\" onclick = highlight('$key') value= $key>".' '.$value."<br>";
-        echo "</div>"; //end summaryInfo div
-    echo '</div>' // end summary div  
+        echo '</div> </div>';
       ?>
 
     <script type= "text/javascript"> 
@@ -69,3 +67,4 @@
     </script>
   </body>
 </html>
+ 
