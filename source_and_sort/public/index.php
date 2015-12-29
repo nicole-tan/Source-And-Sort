@@ -49,21 +49,20 @@
         </div> 
       </div> 
 
-      <?php 
-    echo '<div id = "summary">
-            <p> Summary: </p>';
-            
+ 
+      <div id = "summary">
+            <p> Summary: </p>
+      <?php
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
-        echo '<div id= "summaryInfo">';
         $tagCount = (array_count_values($matches[1]));
-        foreach($tagCount as $key => $value)
-          echo "<input type= \"submit\" onclick = highlight('$key') value= $key>".' '.$value."<br>";
-        echo '</div> </div>';
+        foreach($tagCount as $key => $value) {
+          echo "<input type= \"submit\" onclick = highlight('$key') value= $key>".' '.$value."<br>"; }
       ?>
+      </div>
 
     <script type= "text/javascript"> 
       function highlight(text) {
-        document.body.innerHTML = document.body.innerHTML.replace(
+        document.getElementById("prettyPrint").innerHTML = document.getElementById("prettyPrint").innerHTML.replace(
             new RegExp(text + '(?!([^<]+)?>)', 'gi'),
             '<b style="background-color:#a6e22d;font-size:100%">$&</b>'
         );
@@ -71,4 +70,4 @@
     </script>
   </body>
 </html>
- 
+
