@@ -11,13 +11,14 @@
 	max-height: 100%;
 	overflow: auto;
 	background: #44453f;
+	color: white;
 }
 
 body {
 	background: #272822;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 20px;
-	color: white;
+	color: #272822;
 }
 
 #url {
@@ -47,13 +48,16 @@ body {
 }
 #requestForm {
 	float: left;
+	color: white;
 }
 
 #summary {
 	float: right;
 	margin-right: 400px;
+	color: white;
 }
 
 #summaryInfo {
 	font: Arial;
+	color: white;
 }
