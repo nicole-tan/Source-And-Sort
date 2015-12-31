@@ -13,11 +13,12 @@
       <form name= "url" action= "index.php" method= "POST" id = "urlField"> 
         <p id = "enterUrl"> Please enter a URL here: </p>
         <input type="url" name = "url" id = "url">
-        <input type="submit" name = "submit" value= "Submit" id = "submit">
+        <input type="submit" name = "submit" value= "Submit" id = "submit" onclick= "toggle_visibility('summary');">
         <br>
       </form> 
 
       <?php 
+        error_reporting(E_ERROR | E_PARSE);
         if (isset($_POST['submit'])) {
         $pageurl = $_POST['url'];
         }
@@ -31,7 +32,7 @@
         for($i=0;$i<$level; $i++){
             $tabs .= "    ";
         }
-            foreach($arr as $key=>$val){
+            foreach($arr as $key => $val){
                 if( is_array($val) ) {
                     print_r ($tabs . $key . " : ".">"."<br />");
                     pretty($val, $level + 1);
@@ -60,12 +61,18 @@
       ?>
       </div>
 
+      <script type= "text/javascript">
+        function toggle_visibility(id) {
+          console.log("in javascript");
+          document.getElementById(id).style.visibility = 'visible';
+        }
+      </script>
+
     <script type= "text/javascript"> 
       function highlight(text) {
           var greatertext = '&lt;' + text;
           var replacement = new RegExp(greatertext, "g");
          if ((replacement).test(document.getElementById("prettyPrint").innerHTML)) {
-                console.log('working');
             document.getElementById("prettyPrint").innerHTML = document.getElementById("prettyPrint").innerHTML.replace(
             new RegExp(greatertext + '(?!([^<]+)?>)', 'gi'),
             '<b style="background-color:#a6e22d;font-size:100%">$&</b>'
