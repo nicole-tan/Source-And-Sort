@@ -62,12 +62,16 @@
 
     <script type= "text/javascript"> 
       function highlight(text) {
-        document.getElementById("prettyPrint").innerHTML = document.getElementById("prettyPrint").innerHTML.replace(
-            new RegExp(text + '(?!([^<]+)?>)', 'gi'),
+          var greatertext = '&lt;' + text;
+          var replacement = new RegExp(greatertext, "g");
+         if ((replacement).test(document.getElementById("prettyPrint").innerHTML)) {
+                console.log('working');
+            document.getElementById("prettyPrint").innerHTML = document.getElementById("prettyPrint").innerHTML.replace(
+            new RegExp(greatertext + '(?!([^<]+)?>)', 'gi'),
             '<b style="background-color:#a6e22d;font-size:100%">$&</b>'
         );
       }
+    }
     </script>
   </body>
 </html>
-
