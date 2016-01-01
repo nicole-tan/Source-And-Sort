@@ -13,7 +13,7 @@
       <form name= "url" action= "index.php" method= "POST" id = "urlField"> 
         <p id = "enterUrl"> Please enter a URL here: </p>
         <input type="url" name = "url" id = "url">
-        <input type="submit" name = "submit" value= "Submit" id = "submit" onclick= "toggle_visibility('summary');">
+        <input type="submit" name = "submit" value= "Submit" class= "button_style" onclick= "toggle_visibility('summary');">
         <br>
       </form> 
 
@@ -28,20 +28,21 @@
         $pieces = explode("&gt;", $pagevar);
 
         function pretty($arr, $level=0){
-        $tabs = "";
-        for($i=0;$i<$level; $i++){
-            $tabs .= "    ";
-        }
-            foreach($arr as $key => $val){
-                if( is_array($val) ) {
-                    print_r ($tabs . $key . " : ".">"."<br />");
-                    pretty($val, $level + 1);
-                } else {
-                    if($val && $val !== 0){
-                        print_r ($tabs . $val .">"."<br />"); 
-                    }
-                }
+          $tabs = "";
+          for($i=0;$i<$level; $i++){
+              $tabs .= "    ";
+          }
+          foreach($arr as $key => $val){
+            if( is_array($val) ) {
+                print_r ($tabs . $key . " : ".">"."<br />");
+                pretty($val, $level + 1);
+            } 
+            else {
+              if($val && $val !== 0){
+              print_r ($tabs . $val .">"."<br />"); 
+              }
             }
+          }
         }
 
         ?>
@@ -54,21 +55,21 @@
       <div id = "summary">
             <p> Summary: </p>
       <?php
+        echo "<div id = summary_info>";
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
         $tagCount = (array_count_values($matches[1]));
         foreach($tagCount as $key => $value) {
-          echo "<input type= \"submit\" onclick = highlight('$key') value= $key>".' '.$value."<br>"; }
+          echo "<input type= \"submit\" onclick = highlight('$key') class = \"button_style\" value= $key>".' '.$value."<br>"; }
       ?>
       </div>
 
-      <script type= "text/javascript">
-        function toggle_visibility(id) {
-          console.log("in javascript");
-          document.getElementById(id).style.visibility = 'visible';
-        }
-      </script>
+
 
     <script type= "text/javascript"> 
+      function toggle_visibility(id) {
+          document.getElementById(id).style.visibility = 'visible';
+        }
+
       function highlight(text) {
           var greatertext = '&lt;' + text;
           var replacement = new RegExp(greatertext, "g");
