@@ -12,6 +12,6 @@ However, you can also start by typing the code below into Terminal. There will b
 ```php
 php server.php 
 ```
-
+After this, type http://localhost:3000/index.php into your browser to start the web application. 
 
 
