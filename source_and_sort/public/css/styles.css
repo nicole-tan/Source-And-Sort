@@ -55,9 +55,15 @@ body {
 	float: right;
 	margin-right: 400px;
 	color: white;
+	font: Arial;
 }
 
-#summaryInfo {
-	font: Arial;
+
+.button_style {
+	background-color: black;
+	border-style: solid;
+	border-color: white;
 	color: white;
+	margin-right: 10px;
+	margin-bottom: 3px;
 }
