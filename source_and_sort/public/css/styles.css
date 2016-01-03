@@ -58,6 +58,13 @@ body {
 	font: Arial;
 }
 
+#clear_button {
+	background-color: black;
+	border-style: solid;
+	border-color: red;
+	color: red;
+	margin-bottom: 10px;
+}
 
 .button_style {
 	background-color: black;
@@ -66,4 +73,5 @@ body {
 	color: white;
 	margin-right: 10px;
 	margin-bottom: 3px;
+	margin-top: 10px;
 }
