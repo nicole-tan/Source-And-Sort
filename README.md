@@ -1,6 +1,6 @@
 # Source and Sort
 
-### To Use
+## To Use
 
 1. Navigate to the source_and_sort directory in Terminal.
 
@@ -16,7 +16,7 @@ php server.php
 Have a clear button appear on top that will remove all highlighting. </ br>
 Add line numbers to the source code. </ br>
 
-#Planned additions 
+###Planned additions 
 Have a separate box appear to the right that lists the line numbers for each tag when the button corresponding to the tag is clicked. </br >
 Have each line number be a button that will redirect the user to that line in the source code. </ br>
 Create an instructions page. </ br>
