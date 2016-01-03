@@ -18,3 +18,9 @@ Create an instructions page.
 More goals (All UX additions to source code):
 Add indentation to the source code. 
 Add Sublime colors to the source code. 
+
+##Credit
+The pretty print function is a modification from the second function on this page: 
+```html
+http://stackoverflow.com/questions/1168175/is-there-a-pretty-print-for-php
+```
