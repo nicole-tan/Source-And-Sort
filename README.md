@@ -13,8 +13,8 @@ php server.php
 3. After this, type http://localhost:3000/index.php into your browser to start the web application. 
 
 ##Added Features
-Have a clear button appear on top that will remove all highlighting. <br />
-Add line numbers to the source code. <br />
+Clear button appeasr on top that removes all highlighting. <br />
+Added line numbers to the source code. <br />
 
 ###Planned additions 
 Have a separate box appear to the right that lists the line numbers for each tag when the button corresponding to the tag is clicked. </br >
