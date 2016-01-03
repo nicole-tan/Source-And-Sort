@@ -54,10 +54,12 @@
  
       <div id = "summary">
             <p> Summary: </p>
+          <input type= "submit" onclick= "clear_screen();" id= "clear_button" value= "Clear">
+          <br>
       <?php
         echo "<div id = summary_info>";
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
-        $tagCount = (array_count_values($matches[1]));
+        $tagCount = (array_count_values($matches[1])); 
         foreach($tagCount as $key => $value) {
           echo "<input type= \"submit\" onclick = highlight('$key') class = \"button_style\" value= $key>".' '.$value."<br>"; }
       ?>
@@ -66,8 +68,16 @@
 
 
     <script type= "text/javascript"> 
+
+    var arr = [];
+
       function toggle_visibility(id) {
-          document.getElementById(id).style.visibility = 'visible';
+        console.log('in toggle visibility');
+        var elt = document.getElementById(id);
+        if (elt && elt.style.display == 'none') 
+          elt.style.display = 'block';
+        else 
+          elt.style.display = 'none';
         }
 
       function highlight(text) {
@@ -78,8 +88,27 @@
             new RegExp(greatertext + '(?!([^<]+)?>)', 'gi'),
             '<b style="background-color:#a6e22d;font-size:100%">$&</b>'
         );
+            arr.push(greatertext);
+            console.log(arr.toString());
       }
     }
+
+    function clear_screen() {
+      console.log('in clear function');
+      for (i = 0; i < arr.length; i++) {
+        var elt = arr[i];
+        console.log(elt);
+        var replacement = new RegExp(elt, "g");
+        if ((replacement).test(document.getElementById("prettyPrint").innerHTML)) {
+          console.log('in if statement');
+            document.getElementById("prettyPrint").innerHTML = document.getElementById("prettyPrint").innerHTML.replace(
+            new RegExp(elt + '(?!([^<]+)?>)', 'gi'),
+            '<span style= "background-color:#44453f;color: white; font-weight: normal">$&</span>'
+        );
+      }
+    }
+  }
+
     </script>
   </body>
 </html>
