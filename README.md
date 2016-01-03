@@ -15,6 +15,7 @@
 ##Added Features
 Clear button appears on top that removes all highlighting. <br />
 Added line numbers to the source code. <br />
+Created a separate box to the right listing tag names when clicked.
 
 ###Planned additions 
 Have a separate box appear to the right that lists the line numbers for each tag when the button corresponding to the tag is clicked. </br >
