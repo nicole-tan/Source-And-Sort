@@ -63,10 +63,10 @@
         foreach($tagCount as $key => $value) {
           echo "<input type= \"submit\" onclick = highlight('$key');show_div() class = \"button_style\" value= $key>".' '.$value."<br>"; }
       ?>
-        <!-- </div>
-          <div id= "line_location" style= "display:none; margin-right: 80px; color: white; float: right;">
+        </div>
+          <div id= "line_location" style= "color: white; display: inline-block; width: 50%; float: right; height: 100%">
           <p> Line location(s) of tag: </p>
-          </div> -->
+          </div>
       </div>
 
 
