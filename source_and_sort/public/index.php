@@ -76,6 +76,7 @@
 
     var arr = [];
     var new_string = "";
+    var dict = [];
 
       function toggle_visibility(id) {
         console.log('in toggle visibility');
@@ -112,6 +113,8 @@
             '<span style= "background-color:#44453f;color: white; font-weight: normal">$&</span>'
         );
         }
+        new_string = "";
+        document.getElementById("line_location").innerHTML = "Line location(s) of tag:" + "<br>";
       }
     }
 
@@ -124,15 +127,11 @@
       div.style.display = "inline-block";
     }
 
+    function find_line_number(key) {
+      //goes through source code and uses regex to find the closest line number to the left that corresponds to each key
+      //lists each line number in the value which is stored as an array in the global dictionary dict
+    }
 
-
-   /** function line_display() {
-      var line_tag_array = <?php echo json_encode(pretty($pieces)) ?>;
-      for(i = 0; i < line_tag_array.length; i++) {
-
-      }
-
-    } **/
 
     </script>
   </body>
