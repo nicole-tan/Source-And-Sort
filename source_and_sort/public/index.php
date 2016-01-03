@@ -64,7 +64,7 @@
           echo "<input type= \"submit\" onclick = highlight('$key');show_div() class = \"button_style\" value= $key>".' '.$value."<br>"; }
       ?>
         </div>
-          <div id= "line_location" style= "color: white; display: inline-block; width: 50%; float: right; height: 100%">
+          <div id= "line_location" style= "color: white; display: none; width: 50%; float: right; height: 100%">
           <p> Line location(s) of tag: </p>
           </div>
       </div>
@@ -115,7 +115,7 @@
     }
 
     function show_div() {
-      document.getElementById("line_location").style.display = "";
+      document.getElementById("line_location").style.display = "inline-block";
     }
 
    /** function line_display() {
@@ -129,3 +129,4 @@
     </script>
   </body>
 </html>
+
