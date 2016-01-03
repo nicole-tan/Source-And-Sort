@@ -19,6 +19,7 @@ Add line numbers to the source code. <br />
 ###Planned additions 
 Have a separate box appear to the right that lists the line numbers for each tag when the button corresponding to the tag is clicked. </br >
 Have each line number be a button that will redirect the user to that line in the source code. <br />
+Optimize for mobile. <br />
 Create an instructions page. <br />
 Add indentation to the source code. <br />
 Add Sublime colors to the source code. <br />
