@@ -12,6 +12,7 @@
 	overflow: auto;
 	background: #44453f;
 	color: white;
+	display: inline-block;
 }
 
 body {
@@ -52,10 +53,17 @@ body {
 }
 
 #summary {
-	float: right;
-	margin-right: 400px;
+	width: 400px;
+	margin-left: 60px;
 	color: white;
 	font: Arial;
+	display: inline-block;
+}
+
+#summary_info {
+	display: inline-block;
+	width: 45%;
+	height: 100%;
 }
 
 #clear_button {
