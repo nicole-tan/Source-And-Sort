@@ -6,9 +6,9 @@
 
 2. To start the server, type the code below into Terminal. 
 
-```php
-php server.php 
-```
+  ```php
+  php server.php 
+  ```
 
 3. After this, type http://localhost:3000/index.php into your browser to start the web application. 
 
