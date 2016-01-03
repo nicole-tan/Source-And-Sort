@@ -13,7 +13,7 @@ php server.php
 3. After this, type http://localhost:3000/index.php into your browser to start the web application. 
 
 ##Added Features
-Clear button appeasr on top that removes all highlighting. <br />
+Clear button appears on top that removes all highlighting. <br />
 Added line numbers to the source code. <br />
 
 ###Planned additions 
