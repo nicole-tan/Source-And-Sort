@@ -61,7 +61,7 @@
         $search = preg_match_all('/<([^\/!][a-z1-9]*)/i', $pagerequest,$matches);
         $tagCount = (array_count_values($matches[1])); 
         foreach($tagCount as $key => $value) {
-          echo "<input type= \"submit\" onclick = highlight('$key');show_div() class = \"button_style\" value= $key>".' '.$value."<br>"; }
+          echo "<input type= \"submit\" onclick = highlight('$key');show_div('$key') class = \"button_style\" value= $key>".' '.$value."<br>"; }
       ?>
         </div>
           <div id= "line_location" style= "color: white; display: none; width: 50%; float: right; height: 100%">
@@ -75,6 +75,7 @@
     <script type= "text/javascript"> 
 
     var arr = [];
+    var new_string = "";
 
       function toggle_visibility(id) {
         console.log('in toggle visibility');
@@ -114,9 +115,16 @@
       }
     }
 
-    function show_div() {
-      document.getElementById("line_location").style.display = "inline-block";
+    function show_div(key) {
+      console.log('in show div');
+      var div = document.getElementById("line_location");
+      new_string = new_string.concat(key + ':' + '<br>');
+      div.innerHTML = div.innerHTML + new_string;
+      new_string = "";
+      div.style.display = "inline-block";
     }
+
+
 
    /** function line_display() {
       var line_tag_array = <?php echo json_encode(pretty($pieces)) ?>;
@@ -129,4 +137,3 @@
     </script>
   </body>
 </html>
-
